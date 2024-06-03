@@ -1,0 +1,7 @@
+*.o
+asm
+vm
+champions
+binaries
+*.log
+*.a
