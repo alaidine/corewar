@@ -1,7 +1,8 @@
+#include <stdlib.h>
 #include <stdio.h>
 
 int main()
 {
     printf("Vm started\n");
-    return 0;
+    return EXIT_SUCCESS;
 }

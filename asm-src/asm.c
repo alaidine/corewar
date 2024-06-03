@@ -1,15 +1,31 @@
+#define _GNU_SOURCE
+
 #include "asm.h"
 
 int main(int argc, char **argv)
 {
+    FILE *stream;
+    char *line = NULL;
+    size_t len = 0;
+    ssize_t nread;
+
     if (argc < 2)
     {
         fprintf(stderr, "Usage: %s <file>\n", argv[0]);
-        return 1;
+        return EXIT_FAILURE;
     }
-    for (int i = 1; i < argc; i++)
+
+    stream = fopen(argv[1], "r");
+    if (stream == NULL)
     {
-        printf("Processing file %s\n", argv[i]);
+        perror("fopen");
+        return EXIT_FAILURE;
     }
-    return 0;
+
+    while ((nread = getline(&line, &len, stream)) != -1)
+    {
+        fprintf(stdout, "%s", line);
+    }
+
+    return EXIT_SUCCESS;
 }
