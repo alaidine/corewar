@@ -5,3 +5,5 @@ champions
 binaries
 *.log
 *.a
+*.i64
+.cache

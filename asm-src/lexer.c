@@ -2,7 +2,5 @@
 
 bool isdelimeter(char c)
 {
-    char *delimeters = " ,";
-
-    return strchr(delimeters, c) != NULL;
+    return strchr(DELIMETERS, c) != NULL;
 }

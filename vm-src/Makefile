@@ -67,8 +67,8 @@ CMAKE_BINARY_DIR = /home/alaidine/Projects/corewar/vm-src
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -117,17 +117,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named corewar-vm
+# Target rules for targets named vm
 
 # Build rule for target.
-corewar-vm: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 corewar-vm
-.PHONY : corewar-vm
+vm: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 vm
+.PHONY : vm
 
 # fast build rule for target.
-corewar-vm/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/build
-.PHONY : corewar-vm/fast
+vm/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/build
+.PHONY : vm/fast
 
 #=============================================================================
 # Target rules for targets named glfw
@@ -160,7 +160,7 @@ imgui/backends/imgui_impl_glfw.o: imgui/backends/imgui_impl_glfw.cpp.o
 
 # target to build an object file
 imgui/backends/imgui_impl_glfw.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/backends/imgui_impl_glfw.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/backends/imgui_impl_glfw.cpp.o
 .PHONY : imgui/backends/imgui_impl_glfw.cpp.o
 
 imgui/backends/imgui_impl_glfw.i: imgui/backends/imgui_impl_glfw.cpp.i
@@ -168,7 +168,7 @@ imgui/backends/imgui_impl_glfw.i: imgui/backends/imgui_impl_glfw.cpp.i
 
 # target to preprocess a source file
 imgui/backends/imgui_impl_glfw.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/backends/imgui_impl_glfw.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/backends/imgui_impl_glfw.cpp.i
 .PHONY : imgui/backends/imgui_impl_glfw.cpp.i
 
 imgui/backends/imgui_impl_glfw.s: imgui/backends/imgui_impl_glfw.cpp.s
@@ -176,7 +176,7 @@ imgui/backends/imgui_impl_glfw.s: imgui/backends/imgui_impl_glfw.cpp.s
 
 # target to generate assembly for a file
 imgui/backends/imgui_impl_glfw.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/backends/imgui_impl_glfw.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/backends/imgui_impl_glfw.cpp.s
 .PHONY : imgui/backends/imgui_impl_glfw.cpp.s
 
 imgui/backends/imgui_impl_vulkan.o: imgui/backends/imgui_impl_vulkan.cpp.o
@@ -184,7 +184,7 @@ imgui/backends/imgui_impl_vulkan.o: imgui/backends/imgui_impl_vulkan.cpp.o
 
 # target to build an object file
 imgui/backends/imgui_impl_vulkan.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/backends/imgui_impl_vulkan.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/backends/imgui_impl_vulkan.cpp.o
 .PHONY : imgui/backends/imgui_impl_vulkan.cpp.o
 
 imgui/backends/imgui_impl_vulkan.i: imgui/backends/imgui_impl_vulkan.cpp.i
@@ -192,7 +192,7 @@ imgui/backends/imgui_impl_vulkan.i: imgui/backends/imgui_impl_vulkan.cpp.i
 
 # target to preprocess a source file
 imgui/backends/imgui_impl_vulkan.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/backends/imgui_impl_vulkan.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/backends/imgui_impl_vulkan.cpp.i
 .PHONY : imgui/backends/imgui_impl_vulkan.cpp.i
 
 imgui/backends/imgui_impl_vulkan.s: imgui/backends/imgui_impl_vulkan.cpp.s
@@ -200,7 +200,7 @@ imgui/backends/imgui_impl_vulkan.s: imgui/backends/imgui_impl_vulkan.cpp.s
 
 # target to generate assembly for a file
 imgui/backends/imgui_impl_vulkan.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/backends/imgui_impl_vulkan.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/backends/imgui_impl_vulkan.cpp.s
 .PHONY : imgui/backends/imgui_impl_vulkan.cpp.s
 
 imgui/imgui.o: imgui/imgui.cpp.o
@@ -208,7 +208,7 @@ imgui/imgui.o: imgui/imgui.cpp.o
 
 # target to build an object file
 imgui/imgui.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui.cpp.o
 .PHONY : imgui/imgui.cpp.o
 
 imgui/imgui.i: imgui/imgui.cpp.i
@@ -216,7 +216,7 @@ imgui/imgui.i: imgui/imgui.cpp.i
 
 # target to preprocess a source file
 imgui/imgui.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui.cpp.i
 .PHONY : imgui/imgui.cpp.i
 
 imgui/imgui.s: imgui/imgui.cpp.s
@@ -224,7 +224,7 @@ imgui/imgui.s: imgui/imgui.cpp.s
 
 # target to generate assembly for a file
 imgui/imgui.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui.cpp.s
 .PHONY : imgui/imgui.cpp.s
 
 imgui/imgui_demo.o: imgui/imgui_demo.cpp.o
@@ -232,7 +232,7 @@ imgui/imgui_demo.o: imgui/imgui_demo.cpp.o
 
 # target to build an object file
 imgui/imgui_demo.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui_demo.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui_demo.cpp.o
 .PHONY : imgui/imgui_demo.cpp.o
 
 imgui/imgui_demo.i: imgui/imgui_demo.cpp.i
@@ -240,7 +240,7 @@ imgui/imgui_demo.i: imgui/imgui_demo.cpp.i
 
 # target to preprocess a source file
 imgui/imgui_demo.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui_demo.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui_demo.cpp.i
 .PHONY : imgui/imgui_demo.cpp.i
 
 imgui/imgui_demo.s: imgui/imgui_demo.cpp.s
@@ -248,7 +248,7 @@ imgui/imgui_demo.s: imgui/imgui_demo.cpp.s
 
 # target to generate assembly for a file
 imgui/imgui_demo.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui_demo.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui_demo.cpp.s
 .PHONY : imgui/imgui_demo.cpp.s
 
 imgui/imgui_draw.o: imgui/imgui_draw.cpp.o
@@ -256,7 +256,7 @@ imgui/imgui_draw.o: imgui/imgui_draw.cpp.o
 
 # target to build an object file
 imgui/imgui_draw.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui_draw.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui_draw.cpp.o
 .PHONY : imgui/imgui_draw.cpp.o
 
 imgui/imgui_draw.i: imgui/imgui_draw.cpp.i
@@ -264,7 +264,7 @@ imgui/imgui_draw.i: imgui/imgui_draw.cpp.i
 
 # target to preprocess a source file
 imgui/imgui_draw.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui_draw.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui_draw.cpp.i
 .PHONY : imgui/imgui_draw.cpp.i
 
 imgui/imgui_draw.s: imgui/imgui_draw.cpp.s
@@ -272,7 +272,7 @@ imgui/imgui_draw.s: imgui/imgui_draw.cpp.s
 
 # target to generate assembly for a file
 imgui/imgui_draw.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui_draw.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui_draw.cpp.s
 .PHONY : imgui/imgui_draw.cpp.s
 
 imgui/imgui_tables.o: imgui/imgui_tables.cpp.o
@@ -280,7 +280,7 @@ imgui/imgui_tables.o: imgui/imgui_tables.cpp.o
 
 # target to build an object file
 imgui/imgui_tables.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui_tables.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui_tables.cpp.o
 .PHONY : imgui/imgui_tables.cpp.o
 
 imgui/imgui_tables.i: imgui/imgui_tables.cpp.i
@@ -288,7 +288,7 @@ imgui/imgui_tables.i: imgui/imgui_tables.cpp.i
 
 # target to preprocess a source file
 imgui/imgui_tables.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui_tables.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui_tables.cpp.i
 .PHONY : imgui/imgui_tables.cpp.i
 
 imgui/imgui_tables.s: imgui/imgui_tables.cpp.s
@@ -296,7 +296,7 @@ imgui/imgui_tables.s: imgui/imgui_tables.cpp.s
 
 # target to generate assembly for a file
 imgui/imgui_tables.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui_tables.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui_tables.cpp.s
 .PHONY : imgui/imgui_tables.cpp.s
 
 imgui/imgui_widgets.o: imgui/imgui_widgets.cpp.o
@@ -304,7 +304,7 @@ imgui/imgui_widgets.o: imgui/imgui_widgets.cpp.o
 
 # target to build an object file
 imgui/imgui_widgets.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui_widgets.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui_widgets.cpp.o
 .PHONY : imgui/imgui_widgets.cpp.o
 
 imgui/imgui_widgets.i: imgui/imgui_widgets.cpp.i
@@ -312,7 +312,7 @@ imgui/imgui_widgets.i: imgui/imgui_widgets.cpp.i
 
 # target to preprocess a source file
 imgui/imgui_widgets.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui_widgets.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui_widgets.cpp.i
 .PHONY : imgui/imgui_widgets.cpp.i
 
 imgui/imgui_widgets.s: imgui/imgui_widgets.cpp.s
@@ -320,7 +320,7 @@ imgui/imgui_widgets.s: imgui/imgui_widgets.cpp.s
 
 # target to generate assembly for a file
 imgui/imgui_widgets.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/imgui/imgui_widgets.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/imgui/imgui_widgets.cpp.s
 .PHONY : imgui/imgui_widgets.cpp.s
 
 main.o: main.cpp.o
@@ -328,7 +328,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -336,7 +336,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -344,7 +344,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corewar-vm.dir/build.make CMakeFiles/corewar-vm.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vm.dir/build.make CMakeFiles/vm.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -356,8 +356,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... update_mappings"
-	@echo "... corewar-vm"
 	@echo "... glfw"
+	@echo "... vm"
 	@echo "... imgui/backends/imgui_impl_glfw.o"
 	@echo "... imgui/backends/imgui_impl_glfw.i"
 	@echo "... imgui/backends/imgui_impl_glfw.s"

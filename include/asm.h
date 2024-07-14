@@ -11,4 +11,13 @@
 
 #define MAX_LENGTH 100
 
+#define DELIMETERS " ,"
+
+struct lexer_s
+{
+    char *input;
+    char byte;
+    int index;
+};
+
 #endif // ASM_H

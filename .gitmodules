@@ -1,6 +1,0 @@
-[submodule "vm-src/imgui"]
-	path = vm-src/imgui
-	url = git@github.com:ocornut/imgui.git
-[submodule "vm-src/glfw"]
-	path = vm-src/glfw
-	url = git@github.com:glfw/glfw.git
