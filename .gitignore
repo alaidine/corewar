@@ -1,8 +1,13 @@
 *.o
+
 asm
 vm
-champions
+
+bin/
+obj/
+
 binaries
+
 *.log
 *.a
 *.i64

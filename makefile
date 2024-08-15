@@ -1,20 +1,14 @@
-ASM = asm
-VM = vm
-ASM_SRC = $(shell find asm-src -name '*.c')
-ASM_OBJ = $(ASM_SRC:.c=.o)
-CC = clang
-FLAGS = -Wall -Wextra -Werror -g -Iinclude
+.PHONY: bin
 
-all: $(ASM) $(VM)
+all: bin asm vm
 
-%.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+bin:
+	mkdir bin/ -p
 
-$(ASM): $(ASM_OBJ)
-	$(CC) $(FLAGS) -o $@ $^
-
-$(VM):
+asm:
+	cd ./asm-src/ && $(MAKE)
+vm:
 	cd ./vm-src/ && $(MAKE)
 
 clean:
-	rm -f $(ASM_OBJ) $(VM_OBJ) $(ASM) $(VM)
+	rm -f ./bin/*
