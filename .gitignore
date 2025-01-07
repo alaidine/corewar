@@ -1,14 +1,3 @@
-*.o
-
-asm
-vm
-
-bin/
-obj/
-
-binaries
-
-*.log
-*.a
-*.i64
-.cache
+vendor/
+.zig-cache
+zig-out/
