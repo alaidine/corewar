@@ -1,18 +1,34 @@
 const std = @import("std");
 
-const TokenType = enum { SEMICOLON, COLON, NUMBER, WORD };
+const TokenType = enum { Colon, Number, Identifier, Keyword, String, Percent };
 
-const lexer = struct { source: []const u8, ch: u8, nextch: u8, size: u8 };
-const token = struct { value: []const u8, type: TokenType };
+const Lexer = struct { source: []const u8, current: usize, size: usize };
+const Token = struct { value: []const u8, type: TokenType };
 
-pub fn init_lexer(str: []const u8) lexer {
-    return lexer{ .source = str, .ch = 0, .nextch = 1, .size = std.mem.len(str) };
-}
+const allocator = std.heap.page_allocator;
 
-pub fn tokenize(str: []const u8) []const TokenType {
-    var lex = init_lexer(str);
-    var allocator = std.heap.page_allocator;
-    var tokens = {};
+pub fn tokenize(file_content: []const u8, file_size: u64) !std.ArrayList(Token) {
+    const lexer = Lexer{ .source = file_content, .current = 0, .size = file_size };
+    var tokens = std.ArrayList(Token).init(allocator);
+
+    var i: u32 = 0;
+
+    while (false) {
+        const ch: u8 = lexer.source[i];
+
+        if (std.ascii.isAlphabetic(ch)) {
+            var j = i;
+
+            while (std.ascii.isAlphabetic(ch) and j < lexer.size) {
+                j += 1;
+            }
+
+            const token = Token{ .value = lexer.source[i..j], .type = TokenType.Identifier };
+            try tokens.append(token);
+
+            i = j + 1;
+        }
+    }
 
     return tokens;
 }
