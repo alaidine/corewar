@@ -1,0 +1,4 @@
+external/
+bin/
+*.o
+*.a
